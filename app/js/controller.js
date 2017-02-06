@@ -5,13 +5,7 @@ petrApp.controller('petrCtrl',['$scope', '$http', function($scope, $http) {
   $http.get('products.json').then(function(data){
     $scope.products = data.data;
     for(i = 0; i < $scope.products.length; i++) {
-    var tags = $scope.products[i].assocProducts;
-    var re = /\n*;\n*/;
-    var tagList = tags.split(re);
-    console.log(tagList); //  ["Лето", "зима", "осень 2009 года"]
-    petrApp.controller('tagName',['$scope', function($scope){
-
-    }]);
+    console.log($scope.products[i].assocProducts);
   }
   },
 function(Error) {
