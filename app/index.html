@@ -24,9 +24,9 @@
                   <div id="products_section" ng-controller="CounterController">
                       <div class="products_page pg_0">
                           <div class="product product_horizontal"  ng-repeat="product in products">
-                              <span class="product_code">Код: {{product.code  | number:0}}</span>
+                              <span class="product_code">Код: {{product.code  | number:fractionSize}}</span>
                               <div class="product_status_tooltip_container">
-                                  <span class="product_status" ng-init="status = product.isActive ? 'В наличии' : 'Нет в наличии'">{{status}}</span>
+                                  <span class="product_status" ng-init="status = product.isActive ? 'Наличие' : 'Нет в наличии'">{{status}}</span>
                               </div>
                               <div class="product_photo">
                                   <a href="#" class="url--link product__link">
@@ -36,14 +36,9 @@
                               <div class="product_description">
                                   <a href="#" class="product__link">{{product.title}}</a>
                               </div>
-                              <div class="product_tags hidden-sm">
+                              <div class="product_tags hidden-sm" >
                                   <p>Могут понадобиться:</p>
-                                  <a href="#" class="url--link">подложка,</a>
-                                  <a href="#" class="url--link">плинтус натуральный,</a>
-                                  <a href="#" class="url--link">рулетка,</a>
-                                  <a href="#" class="url--link">набор для укладки ламината,</a>
-                                  <a href="#" class="url--link">ножовка по ламинату,</a>
-                                  <a href="#" class="url--link">гель для стыков ламината Clic Protect.</a>
+                                  <a href="#" class="url--link">{{product.tagList}}</a>
                               </div>
                               <div class="product_units">
                                   <div class="unit--wrapper">
@@ -65,7 +60,7 @@
                                    </span>
                               </p>
                               <p class="product_price_default">
-                                  <span class="retailPrice">{{product.priceRetailAlt | number:2}}</span>
+                                  <span class="retailPrice">{{product.priceRetailAlt | number:2 }}</span>
                                   <span class="rouble__i black__i">
                                       <svg version="1.0" id="rouble__g" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="30px" height="22px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
                                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#rouble_gray"></use>
@@ -92,7 +87,7 @@
                                       <div class="stepper">
                                           <input class="product__count stepper-input" type="text" value="{{counter}}">
                                           <span class="stepper-arrow up"  ng-click="counter = counter + 1"></span>
-                                          <span class="stepper-arrow down"  ng-click="decrement(counter)"></span>
+                                          <span class="stepper-arrow down"  ng-click="decrement(product)"></span>
                                       </div>
                                   </div>
                                   <span class="btn btn_cart" data-url="/cart/" data-product-id="9bf0afd7-5190-11e5-b9a9-00259036a192">
